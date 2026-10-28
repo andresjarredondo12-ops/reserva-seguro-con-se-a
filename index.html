@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Turno</title>
+    <!-- Tailwind CSS para maquetar a la velocidad de la luz -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans p-4">
+
+    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6 mt-10">
+        <h1 id="nombre-negocio" class="text-2xl font-bold text-center mb-2">Cargando negocio...</h1>
+        <p class="text-sm text-gray-500 text-center mb-6">Seleccioná tu servicio y asegurá tu lugar</p>
+
+        <!-- Lista de Servicios -->
+        <div id="lista-servicios" class="space-y-4 mb-6">
+            <!-- Los servicios se inyectarán aquí desde Firestore -->
+        </div>
+
+       <div id="form-reserva" class="hidden mt-6 bg-gray-50 p-4 rounded-lg border border-gray-200 shadow-sm">
+    <h3 class="font-bold text-gray-800 mb-3">Tus Datos y Turno</h3>
+    
+    <input type="text" id="nombre-cliente" placeholder="Tu nombre" class="w-full mb-3 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+    <input type="number" id="whatsapp-cliente" placeholder="Tu número de WhatsApp" class="w-full mb-3 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+    
+    <!-- Nuevos campos de Fecha y Hora -->
+    <div class="flex gap-2 mb-4">
+        <div class="w-1/2">
+            <label class="block text-xs text-gray-500 mb-1">Día</label>
+            <input type="date" id="fecha-reserva" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+        </div>
+        <div class="w-1/2">
+            <label class="block text-xs text-gray-500 mb-1">Horario</label>
+            <select id="hora-reserva" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 bg-white">
+                <option value="">Elegí...</option>
+                <option value="09:00">09:00 hs</option>
+                <option value="10:00">10:00 hs</option>
+                <option value="11:00">11:00 hs</option>
+                <option value="16:00">16:00 hs</option>
+                <option value="17:00">17:00 hs</option>
+                <option value="18:00">18:00 hs</option>
+                <option value="19:00">19:00 hs</option>
+                <option value="20:00">20:00 hs</option>
+            </select>
+        </div>
+    </div>
+
+    <button id="btn-pagar-sena" class="w-full bg-green-500 text-white font-bold py-3 px-4 rounded-md hover:bg-green-600 transition shadow">
+        Pagar seña y Reservar
+    </button>
+</div>
+
+    <!-- Firebase SDK (Modular) -->
+    <script type="module" src="./js/firebase.js"></script>
+    <script type="module" src="./js/ui.js"></script>
+</body>
+</html>
